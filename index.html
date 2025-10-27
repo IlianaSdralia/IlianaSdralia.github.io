@@ -25,9 +25,6 @@
     .blob{position:absolute;inset:auto -18rem -18rem auto;width:50rem;height:50rem;border-radius:9999px;filter:blur(60px);opacity:.5;
       background:conic-gradient(from 180deg at 50% 50%, #60a5fa, #a78bfa, #34d399, #60a5fa)}
     @media (max-width:768px){.blob{width:36rem;height:36rem;right:-14rem;bottom:-14rem}}
-    /* thumbnails */
-    .thumb{aspect-ratio:16/9;width:100%;object-fit:cover;border-radius:14px;border:1px solid rgba(0,0,0,.08)}
-    .dark .thumb{border-color:rgba(255,255,255,.12)}
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
@@ -62,10 +59,6 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <a class="card block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5"
          href="https://github.com/IlianaSdralia/my-app" target="_blank" rel="noopener">
-        <img class="thumb mb-3"
-             src="https://raw.githubusercontent.com/IlianaSdralia/my-app/main/cover.png"
-             onerror="this.onerror=null;this.src='https://opengraph.githubassets.com/1/IlianaSdralia/my-app';"
-             alt="my-app cover">
         <div class="flex items-center justify-between">
           <h3 class="font-semibold">my-app</h3>
           <span class="tag">Next.js</span>
@@ -75,10 +68,6 @@
 
       <a class="card block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5"
          href="https://github.com/IlianaSdralia/CountriesAPI" target="_blank" rel="noopener">
-        <img class="thumb mb-3"
-             src="https://raw.githubusercontent.com/IlianaSdralia/CountriesAPI/main/cover.png"
-             onerror="this.onerror=null;this.src='https://opengraph.githubassets.com/1/IlianaSdralia/CountriesAPI';"
-             alt="CountriesAPI cover">
         <div class="flex items-center justify-between">
           <h3 class="font-semibold">CountriesAPI</h3>
           <span class="tag">REST</span>
@@ -88,10 +77,6 @@
 
       <a class="card block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5"
          href="https://github.com/IlianaSdralia/CountriesAPIGUI" target="_blank" rel="noopener">
-        <img class="thumb mb-3"
-             src="https://raw.githubusercontent.com/IlianaSdralia/CountriesAPIGUI/main/cover.png"
-             onerror="this.onerror=null;this.src='https://opengraph.githubassets.com/1/IlianaSdralia/CountriesAPIGUI';"
-             alt="CountriesAPIGUI cover">
         <div class="flex items-center justify-between">
           <h3 class="font-semibold">CountriesAPIGUI</h3>
           <span class="tag">UI</span>
@@ -128,13 +113,9 @@
       localStorage.setItem('theme', toDark ? 'dark' : 'light');
     });
 
-    // --- Auto repos (exclude featured, forks, and the Pages repo) + thumbnails ---
+    // --- Auto repos (exclude featured, forks, and the Pages repo) ---
     const featured = new Set(["my-app","CountriesAPI","CountriesAPIGUI"]);
-    const hidden   = new Set(["IlianaSdralia.github.io"]);
-
-    const imageCandidates = ["cover.png","docs/cover.png","assets/cover.png","screenshots/cover.png"];
-    const og  = (name) => `https://opengraph.githubassets.com/1/IlianaSdralia/${name}`;
-    const raw = (name, path) => `https://raw.githubusercontent.com/IlianaSdralia/${name}/main/${path}`;
+    const hidden   = new Set(["IlianaSdralia.github.io"]); // <- hides your Pages repo
 
     fetch('https://api.github.com/users/IlianaSdralia/repos?per_page=100&sort=updated')
       .then(r => r.json())
@@ -149,33 +130,14 @@
           a.target = '_blank';
           a.rel = 'noopener';
           a.className = 'card block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5';
-
-          // thumbnail with fallback chain
-          const img = document.createElement('img');
-          img.className = 'thumb mb-3';
-          img.alt = `${repo.name} cover`;
-          img.dataset.name = repo.name;
-          img.dataset.idx = "0";
-          img.src = raw(repo.name, imageCandidates[0]);
-          img.onerror = function () {
-            const i = parseInt(this.dataset.idx, 10) + 1;
-            if (i < imageCandidates.length) {
-              this.dataset.idx = String(i);
-              this.src = raw(this.dataset.name, imageCandidates[i]);
-            } else {
-              this.onerror = null;
-              this.src = og(this.dataset.name);
-            }
-          };
-
+          const lang = repo.language ? `<span class="tag">${repo.language}</span>` : '';
           a.innerHTML = `
             <div class="flex items-center justify-between">
               <h3 class="font-semibold">${repo.name}</h3>
-              ${repo.language ? `<span class="tag">${repo.language}</span>` : ''}
+              ${lang}
             </div>
             <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">${repo.description ?? ''}</p>
           `;
-          a.prepend(img);
           grid.appendChild(a);
         });
       })
