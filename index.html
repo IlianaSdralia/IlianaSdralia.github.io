@@ -1,22 +1,21 @@
 <!doctype html>
-<html lang="el" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Iliana Sdralia · Portfolio</title>
-  <meta name="description" content="Next.js, TypeScript, Tailwind, Firebase — Projects & contact" />
+  <title>Iliana Sdralia · Data-driven Web Projects</title>
+  <meta name="description" content="Portfolio of Iliana Sdralia — data-driven web apps, Next.js, TypeScript, Tailwind, REST APIs, Firebase." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Dark mode preference (persist)
+    // Persisted dark mode
     (() => {
       const saved = localStorage.getItem('theme');
-      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     })();
   </script>
   <style>
-    /* Subtle glass effect */
     .glass { backdrop-filter: saturate(180%) blur(10px); background: rgba(255,255,255,.65); }
     .dark .glass { background: rgba(24,24,27,.6); }
   </style>
@@ -46,17 +45,15 @@
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-            Clean, minimal web apps<br class="hidden md:block"/>
-            με <span class="underline decoration-2 underline-offset-4">Next.js</span> & TypeScript
+            Data-driven web apps<br class="hidden md:block"/>
+            with <span class="underline decoration-2 underline-offset-4">Next.js</span> & TypeScript
           </h1>
           <p class="mt-5 text-zinc-600 dark:text-zinc-300">
-            Frontend-first προσέγγιση, Tailwind UI, απλές ροές auth με Firebase
-            και μικρά χρήσιμα εργαλεία. Hosted on GitHub Pages & Vercel.
+            Frontend-first development focused on clean UI, fast DX, and pragmatic architecture.
+            I work with REST APIs, Firebase auth, and lightweight deployments on GitHub Pages & Vercel.
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
             <a class="px-4 py-2 rounded-xl bg-black text-white text-sm dark:bg-white dark:text-black" href="https://github.com/IlianaSdralia" target="_blank">GitHub</a>
-            <!-- Βάλε το LinkedIn σου αν θες -->
-            <!-- <a class="px-4 py-2 rounded-xl border text-sm" href="https://www.linkedin.com/in/..." target="_blank">LinkedIn</a> -->
             <a class="px-4 py-2 rounded-xl border text-sm" href="#contact">Get in touch</a>
           </div>
         </div>
@@ -68,10 +65,10 @@
                href="https://github.com/IlianaSdralia/my-app" target="_blank" rel="noopener">
               <div class="flex items-center justify-between">
                 <h3 class="font-semibold">my-app</h3>
-                <span class="text-xs text-zinc-500">Next.js · Tailwind · Firebase</span>
+                <span class="text-xs text-zinc-500">Next.js · Tailwind · Firebase Auth</span>
               </div>
               <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">
-                Home & sign-in/up ροές, deploy στο Vercel.
+                Authentication flows (sign-in/sign-up), clean landing, deployed on Vercel.
               </p>
             </a>
             <!-- Featured 2 -->
@@ -82,7 +79,7 @@
                 <span class="text-xs text-zinc-500">REST API</span>
               </div>
               <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">
-                Endpoint για αναζήτηση & μεταδεδομένα χωρών.
+                Lightweight API exposing country metadata with simple filtering/search.
               </p>
             </a>
             <!-- Featured 3 -->
@@ -93,7 +90,7 @@
                 <span class="text-xs text-zinc-500">UI Client</span>
               </div>
               <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">
-                Μικρό frontend που καταναλώνει το CountriesAPI.
+                Minimal web client consuming CountriesAPI; search & detail views.
               </p>
             </a>
           </div>
@@ -109,15 +106,16 @@
       <span id="repoCount" class="text-sm text-zinc-500"></span>
     </div>
     <div id="projects-grid" class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
-    <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400">Η λίστα γεμίζει αυτόματα από το GitHub API.</p>
+    <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400">Auto-populated from the GitHub API.</p>
   </main>
 
   <!-- ABOUT -->
   <section id="about" class="max-w-6xl mx-auto px-6 py-10">
     <h2 class="text-2xl font-semibold mb-2">About</h2>
     <p class="text-zinc-700 dark:text-zinc-300">
-      Δουλεύω με Next.js + TypeScript + Tailwind και βασικές ροές Firebase Auth/DB.
-      Προτιμώ καθαρές διεπαφές, καλή ονοματολογία και απλά deploys.
+      I build small, focused products: Next.js + TypeScript + Tailwind on the front,
+      REST/JSON APIs on the back, Firebase Auth/DB where it adds velocity.
+      I care about maintainable naming, accessible UI, and quick deployments.
     </p>
   </section>
 
@@ -125,7 +123,7 @@
   <section id="contact" class="max-w-6xl mx-auto px-6 pb-16">
     <h2 class="text-2xl font-semibold mb-2">Contact</h2>
     <p class="text-zinc-700 dark:text-zinc-300">
-      Email: <a class="underline" href="mailto:you@example.com">you@example.com</a>
+      Email: <a class="underline" href="mailto:iliana1996@windowslive.com">iliana1996@windowslive.com</a>
     </p>
   </section>
 
@@ -146,7 +144,7 @@
       localStorage.setItem('theme', toDark ? 'dark' : 'light');
     });
 
-    // Auto repos (exclude featured & forks)
+    // Auto repositories (exclude featured & forks)
     const featured = new Set(["my-app","CountriesAPI","CountriesAPIGUI"]);
     fetch('https://api.github.com/users/IlianaSdralia/repos?per_page=100&sort=updated')
       .then(r => r.json())
