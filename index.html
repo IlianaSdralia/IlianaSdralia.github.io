@@ -5,18 +5,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Iliana Sdralia · Projects</title>
   <meta name="description" content="Selected projects by Iliana Sdralia." />
+  <meta property="og:title" content="Iliana Sdralia · Projects">
+  <meta property="og:description" content="Selected projects by Iliana Sdralia.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    (() => {
-      const s = localStorage.getItem('theme');
-      if (s === 'dark' || (!s && matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }
-    })();
+    const s = localStorage.getItem('theme');
+    if (s === 'dark' || (!s && matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
   </script>
   <style>
-    .glass{backdrop-filter:saturate(180%) blur(10px);background:rgba(255,255,255,.65)}
-    .dark .glass{background:rgba(24,24,27,.6)}
+    .glass{backdrop-filter:saturate(180%) blur(10px);background:rgba(255,255,255,.6)}
+    .dark .glass{background:rgba(24,24,27,.55)}
+    .card{transition:transform .18s ease, box-shadow .18s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .tag{font-size:.72rem;padding:.15rem .5rem;border-radius:999px;border:1px solid rgba(0,0,0,.12)}
+    .dark .tag{border-color:rgba(255,255,255,.14)}
+    .blob{position:absolute;inset:auto -18rem -18rem auto;width:50rem;height:50rem;border-radius:9999px;filter:blur(60px);opacity:.5;
+      background:conic-gradient(from 180deg at 50% 50%, #60a5fa, #a78bfa, #34d399, #60a5fa)}
+    @media (max-width:768px){.blob{width:36rem;height:36rem;right:-14rem;bottom:-14rem}}
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
@@ -28,17 +36,20 @@
         <nav class="text-sm flex items-center gap-5">
           <a class="hover:underline" href="#p1">Projects</a>
           <a class="hover:underline" href="#contact">Contact</a>
-          <button id="themeToggle" class="ml-2 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 text-xs">Toggle</button>
+          <button id="themeToggle" class="ml-1 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 text-xs">Toggle</button>
         </nav>
       </div>
     </div>
   </header>
 
-  <!-- VERY SMALL HERO -->
-  <section class="max-w-6xl mx-auto px-6 py-10">
-    <div class="flex items-end justify-between">
-      <h1 class="text-2xl md:text-3xl font-bold">Projects</h1>
-      <a class="text-sm underline" href="https://github.com/IlianaSdralia" target="_blank">GitHub</a>
+  <!-- HEADER / HERO (very minimal) -->
+  <section class="relative">
+    <div class="blob"></div>
+    <div class="max-w-6xl mx-auto px-6 py-10 md:py-14 relative">
+      <div class="flex items-end justify-between">
+        <h1 class="text-3xl md:text-4xl font-bold">Projects</h1>
+        <a class="text-sm underline" href="https://github.com/IlianaSdralia" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
   </section>
 
@@ -46,29 +57,29 @@
   <main id="p1" class="max-w-6xl mx-auto px-6 pb-6">
     <!-- Featured -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <a class="block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5 hover:shadow-sm"
+      <a class="card block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5"
          href="https://github.com/IlianaSdralia/my-app" target="_blank" rel="noopener">
         <div class="flex items-center justify-between">
           <h3 class="font-semibold">my-app</h3>
-          <span class="text-xs text-zinc-500">Next.js</span>
+          <span class="tag">Next.js</span>
         </div>
-        <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">Auth flows & landing. Vercel.</p>
+        <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">Auth flows & landing (Vercel).</p>
       </a>
 
-      <a class="block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5 hover:shadow-sm"
+      <a class="card block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5"
          href="https://github.com/IlianaSdralia/CountriesAPI" target="_blank" rel="noopener">
         <div class="flex items-center justify-between">
           <h3 class="font-semibold">CountriesAPI</h3>
-          <span class="text-xs text-zinc-500">REST</span>
+          <span class="tag">REST</span>
         </div>
         <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">Country metadata endpoints.</p>
       </a>
 
-      <a class="block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5 hover:shadow-sm"
+      <a class="card block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5"
          href="https://github.com/IlianaSdralia/CountriesAPIGUI" target="_blank" rel="noopener">
         <div class="flex items-center justify-between">
           <h3 class="font-semibold">CountriesAPIGUI</h3>
-          <span class="text-xs text-zinc-500">UI</span>
+          <span class="tag">UI</span>
         </div>
         <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">Client for CountriesAPI.</p>
       </a>
@@ -102,24 +113,28 @@
       localStorage.setItem('theme', toDark ? 'dark' : 'light');
     });
 
-    // Auto repos (only what's not featured; no forks)
+    // --- Auto repos (exclude featured, forks, and the Pages repo) ---
     const featured = new Set(["my-app","CountriesAPI","CountriesAPIGUI"]);
+    const hidden   = new Set(["IlianaSdralia.github.io"]); // <- hides your Pages repo
+
     fetch('https://api.github.com/users/IlianaSdralia/repos?per_page=100&sort=updated')
       .then(r => r.json())
       .then(repos => {
-        const list = repos.filter(x => !x.fork && !featured.has(x.name));
+        const list = repos.filter(x => !x.fork && !featured.has(x.name) && !hidden.has(x.name));
         document.getElementById('repoCount').textContent = `${list.length} more repos`;
         const grid = document.getElementById('projects-grid');
+
         list.forEach(repo => {
           const a = document.createElement('a');
           a.href = repo.html_url;
           a.target = '_blank';
           a.rel = 'noopener';
-          a.className = 'block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5 hover:shadow-sm';
+          a.className = 'card block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5';
+          const lang = repo.language ? `<span class="tag">${repo.language}</span>` : '';
           a.innerHTML = `
             <div class="flex items-center justify-between">
               <h3 class="font-semibold">${repo.name}</h3>
-              <span class="text-xs text-zinc-500">${repo.language ?? ''}</span>
+              ${lang}
             </div>
             <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">${repo.description ?? ''}</p>
           `;
