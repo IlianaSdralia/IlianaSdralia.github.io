@@ -3,21 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Iliana Sdralia · Data-driven Web Projects</title>
-  <meta name="description" content="Portfolio of Iliana Sdralia — data-driven web apps, Next.js, TypeScript, Tailwind, REST APIs, Firebase." />
+  <title>Iliana Sdralia · Projects</title>
+  <meta name="description" content="Selected projects by Iliana Sdralia." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Persisted dark mode
     (() => {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
+      const s = localStorage.getItem('theme');
+      if (s === 'dark' || (!s && matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     })();
   </script>
   <style>
-    .glass { backdrop-filter: saturate(180%) blur(10px); background: rgba(255,255,255,.65); }
-    .dark .glass { background: rgba(24,24,27,.6); }
+    .glass{backdrop-filter:saturate(180%) blur(10px);background:rgba(255,255,255,.65)}
+    .dark .glass{background:rgba(24,24,27,.6)}
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
@@ -27,113 +26,72 @@
       <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <a href="/" class="font-semibold tracking-tight">Iliana Sdralia</a>
         <nav class="text-sm flex items-center gap-5">
-          <a class="hover:underline" href="#p2">Projects</a>
-          <a class="hover:underline" href="#about">About</a>
+          <a class="hover:underline" href="#p1">Projects</a>
           <a class="hover:underline" href="#contact">Contact</a>
-          <button id="themeToggle" class="ml-2 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 text-xs">
-            Toggle theme
-          </button>
+          <button id="themeToggle" class="ml-2 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 text-xs">Toggle</button>
         </nav>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="relative overflow-hidden">
-    <div class="absolute -top-24 -right-24 w-[40rem] h-[40rem] rounded-full opacity-30 blur-3xl bg-gradient-to-tr from-fuchsia-400 via-sky-400 to-emerald-300 dark:from-fuchsia-600 dark:via-sky-600 dark:to-emerald-500"></div>
-    <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-            Data-driven web apps<br class="hidden md:block"/>
-            with <span class="underline decoration-2 underline-offset-4">Next.js</span> & TypeScript
-          </h1>
-          <p class="mt-5 text-zinc-600 dark:text-zinc-300">
-            Frontend-first development focused on clean UI, fast DX, and pragmatic architecture.
-            I work with REST APIs, Firebase auth, and lightweight deployments on GitHub Pages & Vercel.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a class="px-4 py-2 rounded-xl bg-black text-white text-sm dark:bg-white dark:text-black" href="https://github.com/IlianaSdralia" target="_blank">GitHub</a>
-            <a class="px-4 py-2 rounded-xl border text-sm" href="#contact">Get in touch</a>
-          </div>
-        </div>
-        <div class="glass rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3">Featured</p>
-          <div class="space-y-3">
-            <!-- Featured 1 -->
-            <a class="block p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:shadow-sm"
-               href="https://github.com/IlianaSdralia/my-app" target="_blank" rel="noopener">
-              <div class="flex items-center justify-between">
-                <h3 class="font-semibold">my-app</h3>
-                <span class="text-xs text-zinc-500">Next.js · Tailwind · Firebase Auth</span>
-              </div>
-              <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">
-                Authentication flows (sign-in/sign-up), clean landing, deployed on Vercel.
-              </p>
-            </a>
-            <!-- Featured 2 -->
-            <a class="block p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:shadow-sm"
-               href="https://github.com/IlianaSdralia/CountriesAPI" target="_blank" rel="noopener">
-              <div class="flex items-center justify-between">
-                <h3 class="font-semibold">CountriesAPI</h3>
-                <span class="text-xs text-zinc-500">REST API</span>
-              </div>
-              <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">
-                Lightweight API exposing country metadata with simple filtering/search.
-              </p>
-            </a>
-            <!-- Featured 3 -->
-            <a class="block p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:shadow-sm"
-               href="https://github.com/IlianaSdralia/CountriesAPIGUI" target="_blank" rel="noopener">
-              <div class="flex items-center justify-between">
-                <h3 class="font-semibold">CountriesAPIGUI</h3>
-                <span class="text-xs text-zinc-500">UI Client</span>
-              </div>
-              <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">
-                Minimal web client consuming CountriesAPI; search & detail views.
-              </p>
-            </a>
-          </div>
-        </div>
-      </div>
+  <!-- VERY SMALL HERO -->
+  <section class="max-w-6xl mx-auto px-6 py-10">
+    <div class="flex items-end justify-between">
+      <h1 class="text-2xl md:text-3xl font-bold">Projects</h1>
+      <a class="text-sm underline" href="https://github.com/IlianaSdralia" target="_blank">GitHub</a>
     </div>
   </section>
 
-  <!-- PROJECTS (#p2) -->
-  <main id="p2" class="max-w-6xl mx-auto px-6 py-10">
-    <div class="flex items-end justify-between gap-4">
-      <h2 class="text-2xl font-semibold">Projects</h2>
-      <span id="repoCount" class="text-sm text-zinc-500"></span>
+  <!-- PROJECTS (#p1) -->
+  <main id="p1" class="max-w-6xl mx-auto px-6 pb-6">
+    <!-- Featured -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <a class="block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5 hover:shadow-sm"
+         href="https://github.com/IlianaSdralia/my-app" target="_blank" rel="noopener">
+        <div class="flex items-center justify-between">
+          <h3 class="font-semibold">my-app</h3>
+          <span class="text-xs text-zinc-500">Next.js</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">Auth flows & landing. Vercel.</p>
+      </a>
+
+      <a class="block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5 hover:shadow-sm"
+         href="https://github.com/IlianaSdralia/CountriesAPI" target="_blank" rel="noopener">
+        <div class="flex items-center justify-between">
+          <h3 class="font-semibold">CountriesAPI</h3>
+          <span class="text-xs text-zinc-500">REST</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">Country metadata endpoints.</p>
+      </a>
+
+      <a class="block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 p-5 hover:shadow-sm"
+         href="https://github.com/IlianaSdralia/CountriesAPIGUI" target="_blank" rel="noopener">
+        <div class="flex items-center justify-between">
+          <h3 class="font-semibold">CountriesAPIGUI</h3>
+          <span class="text-xs text-zinc-500">UI</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">Client for CountriesAPI.</p>
+      </a>
     </div>
-    <div id="projects-grid" class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
-    <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400">Auto-populated from the GitHub API.</p>
+
+    <!-- Auto list -->
+    <h2 class="sr-only">All repositories</h2>
+    <div id="projects-grid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    <p id="repoCount" class="mt-3 text-xs text-zinc-500"></p>
   </main>
-
-  <!-- ABOUT -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-10">
-    <h2 class="text-2xl font-semibold mb-2">About</h2>
-    <p class="text-zinc-700 dark:text-zinc-300">
-      I build small, focused products: Next.js + TypeScript + Tailwind on the front,
-      REST/JSON APIs on the back, Firebase Auth/DB where it adds velocity.
-      I care about maintainable naming, accessible UI, and quick deployments.
-    </p>
-  </section>
 
   <!-- CONTACT -->
   <section id="contact" class="max-w-6xl mx-auto px-6 pb-16">
-    <h2 class="text-2xl font-semibold mb-2">Contact</h2>
-    <p class="text-zinc-700 dark:text-zinc-300">
-      Email: <a class="underline" href="mailto:iliana1996@windowslive.com">iliana1996@windowslive.com</a>
-    </p>
+    <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white/70 dark:bg-zinc-900/60">
+      <p class="text-sm">Email: <a class="underline" href="mailto:iliana1996@windowslive.com">iliana1996@windowslive.com</a></p>
+    </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="max-w-6xl mx-auto px-6 pb-10 text-sm text-zinc-500 dark:text-zinc-400">
-    © <span id="year"></span> Iliana Sdralia — GitHub Pages
+    © <span id="year"></span> Iliana Sdralia
   </footer>
 
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Theme toggle
@@ -144,13 +102,13 @@
       localStorage.setItem('theme', toDark ? 'dark' : 'light');
     });
 
-    // Auto repositories (exclude featured & forks)
+    // Auto repos (only what's not featured; no forks)
     const featured = new Set(["my-app","CountriesAPI","CountriesAPIGUI"]);
     fetch('https://api.github.com/users/IlianaSdralia/repos?per_page=100&sort=updated')
       .then(r => r.json())
       .then(repos => {
         const list = repos.filter(x => !x.fork && !featured.has(x.name));
-        document.getElementById('repoCount').textContent = `${list.length} repos`;
+        document.getElementById('repoCount').textContent = `${list.length} more repos`;
         const grid = document.getElementById('projects-grid');
         list.forEach(repo => {
           const a = document.createElement('a');
@@ -164,11 +122,6 @@
               <span class="text-xs text-zinc-500">${repo.language ?? ''}</span>
             </div>
             <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1">${repo.description ?? ''}</p>
-            <div class="mt-3 flex gap-3 text-xs text-zinc-500">
-              <span>★ ${repo.stargazers_count}</span>
-              <span>⬚ ${repo.open_issues_count}</span>
-              <span>⤴︎ ${new Date(repo.pushed_at).toLocaleDateString()}</span>
-            </div>
           `;
           grid.appendChild(a);
         });
