@@ -1,23 +1,130 @@
 <!doctype html>
 <html lang="el">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Iliana Sdralia</title>
-<style>
-  body{font-family:system-ui,Arial;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6}
-  a{color:#0b5cff;text-decoration:none} a:hover{text-decoration:underline}
-  .btn{display:inline-block;border:1px solid #111;border-radius:10px;padding:10px 14px}
-</style>
-<h1>Iliana Sdralia</h1>
-<p>Frontend projects με Next.js, TypeScript & Tailwind.</p>
-<p>
-  <a class="btn" href="https://github.com/IlianaSdralia">GitHub profile</a>
-</p>
-<h2>Project</h2>
-<ul>
-  <li><a href="https://github.com/IlianaSdralia/my-app">my-app</a> – Next.js + Firebase</li>
-</ul>
-<footer style="margin-top:40px;font-size:.9em;color:#555">
-  © <span id="y"></span> Iliana Sdralia — Hosted on GitHub Pages.
-</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Iliana Sdralia · Projects</title>
+  <meta name="description" content="Portfolio της Iliana Sdralia — Next.js, TypeScript, Tailwind, Firebase" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-50 text-zinc-900">
+  <!-- NAV -->
+  <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="/" class="text-lg font-semibold tracking-tight">Iliana Sdralia</a>
+    <nav class="text-sm flex gap-5">
+      <a href="#projects" class="hover:underline">Projects</a>
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-6 py-10">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight">
+          Minimal, clean web apps με <span class="underline">Next.js</span> & TypeScript
+        </h1>
+        <p class="mt-4 text-zinc-600">
+          Frontend-first προσέγγιση, Tailwind UI, απλές ροές αυθεντικοποίησης και μικρά χρήσιμα εργαλεία.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a class="px-4 py-2 rounded-xl bg-black text-white text-sm" href="https://github.com/IlianaSdralia" target="_blank">GitHub</a>
+          <!-- Βάλε LinkedIn αν θέλεις -->
+          <!-- <a class="px-4 py-2 rounded-xl border text-sm" href="https://www.linkedin.com/in/...." target="_blank">LinkedIn</a> -->
+          <a class="px-4 py-2 rounded-xl border text-sm" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="bg-white border rounded-2xl p-6 shadow-sm">
+        <p class="text-sm text-zinc-500 mb-2">Featured projects</p>
+        <div class="space-y-3">
+          <a class="block p-4 rounded-xl border hover:shadow-sm" href="https://github.com/IlianaSdralia/my-app" target="_blank" rel="noopener">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">my-app</h3>
+              <span class="text-xs text-zinc-500">Next.js · Tailwind · Firebase</span>
+            </div>
+            <p class="text-sm text-zinc-600 mt-1">Home page, sign in/up ροές, deploy στο Vercel.</p>
+          </a>
+
+          <a class="block p-4 rounded-xl border hover:shadow-sm" href="https://github.com/IlianaSdralia/CountriesAPI" target="_blank" rel="noopener">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">CountriesAPI</h3>
+              <span class="text-xs text-zinc-500">API · REST</span>
+            </div>
+            <p class="text-sm text-zinc-600 mt-1">Απλή υπηρεσία για δεδομένα χωρών.</p>
+          </a>
+
+          <a class="block p-4 rounded-xl border hover:shadow-sm" href="https://github.com/IlianaSdralia/CountriesAPIGUI" target="_blank" rel="noopener">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">CountriesAPIGUI</h3>
+              <span class="text-xs text-zinc-500">UI · Web</span>
+            </div>
+            <p class="text-sm text-zinc-600 mt-1">Frontend που καταναλώνει το CountriesAPI.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (auto from GitHub) -->
+  <main id="projects" class="max-w-6xl mx-auto px-6 pb-4">
+    <h2 class="text-xl font-semibold mb-4">Όλα τα δημόσια repos</h2>
+    <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    <p class="mt-4 text-sm text-zinc-500">Γεμίζει αυτόματα από το GitHub API.</p>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-10">
+    <h2 class="text-xl font-semibold mb-2">About</h2>
+    <p class="text-zinc-700">
+      Ασχολούμαι με Next.js, TypeScript, Tailwind και βασικές ροές Firebase Auth.
+      Μου αρέσουν οι καθαρές διεπαφές και τα μικρά projects που λύνουν πραγματικά προβλήματα.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-6 pb-16">
+    <h2 class="text-xl font-semibold mb-2">Contact</h2>
+    <p class="text-zinc-700">
+      Email: <a class="underline" href="mailto:you@example.com">you@example.com</a>
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="max-w-6xl mx-auto px-6 py-10 text-sm text-zinc-500">
+    © <span id="year"></span> Iliana Sdralia — Hosted on GitHub Pages.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Repos που ΔΕΝ θέλουμε να ξαναεμφανιστούν στο auto-list (γιατί είναι featured)
+    const featured = new Set(["my-app","CountriesAPI","CountriesAPIGUI"]);
+
+    // Φέρε όλα τα public repos
+    fetch('https://api.github.com/users/IlianaSdralia/repos?per_page=100&sort=updated')
+      .then(r => r.json())
+      .then(repos => {
+        const grid = document.getElementById('projects-grid');
+        repos
+          .filter(repo => !repo.fork && !featured.has(repo.name))
+          .forEach(repo => {
+            const a = document.createElement('a');
+            a.href = repo.html_url;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.className = 'block rounded-xl border bg-white p-4 hover:shadow-sm';
+            a.innerHTML = `
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold">${repo.name}</h3>
+                <span class="text-xs text-zinc-500">${repo.language ?? ''}</span>
+              </div>
+              <p class="text-sm text-zinc-600 mt-1">${repo.description ?? ''}</p>
+            `;
+            grid.appendChild(a);
+          });
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>
